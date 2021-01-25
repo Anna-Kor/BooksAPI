@@ -14,19 +14,17 @@ namespace BooksAPI.Models
     public class BooksContext
     {
         private readonly IConfiguration _configuration;
-        private readonly ConnectionStrings _connectionStrings;
 
-        public BooksContext (IConfiguration configuration, IOptions<ConnectionStrings> connectionStrings)
+        public BooksContext (IConfiguration configuration)
         {
             _configuration = configuration;
-            _connectionStrings = connectionStrings.Value;
         }
 
         public async Task<List<Book>> GetBooksAsync()
         {
             List<Book> books = new List<Book>();
             var cs = _configuration.GetValue<string>("ConnectionString:BooksDatabase");
-            string query = "SELECT [ID] FROM [dbo].[Books]";
+            string query = "SELECT [BookID] FROM [dbo].[Books]";
 
             using (var sqlCon = new SqlConnection(cs))
             {
