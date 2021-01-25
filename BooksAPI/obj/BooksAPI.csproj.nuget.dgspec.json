@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Zadanie\\BooksAPI\\BooksAPI\\BooksAPI.csproj": {}
+    "E:\\Stronki\\BooksAPI\\BooksAPI\\BooksAPI.csproj": {}
   },
   "projects": {
-    "E:\\Zadanie\\BooksAPI\\BooksAPI\\BooksAPI.csproj": {
+    "E:\\Stronki\\BooksAPI\\BooksAPI\\BooksAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Zadanie\\BooksAPI\\BooksAPI\\BooksAPI.csproj",
+        "projectUniqueName": "E:\\Stronki\\BooksAPI\\BooksAPI\\BooksAPI.csproj",
         "projectName": "BooksAPI",
-        "projectPath": "E:\\Zadanie\\BooksAPI\\BooksAPI\\BooksAPI.csproj",
+        "projectPath": "E:\\Stronki\\BooksAPI\\BooksAPI\\BooksAPI.csproj",
         "packagesPath": "C:\\Users\\annak\\.nuget\\packages\\",
-        "outputPath": "E:\\Zadanie\\BooksAPI\\BooksAPI\\obj\\",
+        "outputPath": "E:\\Stronki\\BooksAPI\\BooksAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\annak\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -6,23 +6,27 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Configuration;
+using Microsoft.Extensions.Options;
 
 namespace BooksAPI.Models
 {
     public class BooksContext
     {
         private readonly IConfiguration _configuration;
+        private readonly ConnectionStrings _connectionStrings;
 
-        public BooksContext (IConfiguration configuration)
+        public BooksContext (IConfiguration configuration, IOptions<ConnectionStrings> connectionStrings)
         {
             _configuration = configuration;
+            _connectionStrings = connectionStrings.Value;
         }
 
         public async Task<List<Book>> GetBook()
         {
             List<Book> books = new List<Book>();
             var cs = _configuration.GetValue<string>("ConnectionString:BooksDatabase");
-            string query = "SELECT * FROM [dbo].[Books]";
+            string query = "SELECT [ID] FROM [dbo].[Books]";
 
             using (var sqlCon = new SqlConnection(cs))
             {
@@ -80,7 +84,7 @@ namespace BooksAPI.Models
         {
             return new Book
             (
-                int.Parse(reader["Id"].ToString()),
+                Guid.Parse(reader["Id"].ToString()),
                 reader["Name"].ToString(),
                 reader["Author"].ToString(),
                 reader["ISBN"].ToString(),

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RXjLonvNfznDeojFRtY+Xz2VhoQfUulG/NuYQhSDnez872sLjMsxyNQSNpmdcwQLKCU1fcGfneb50YtNkxWlKA==",
+  "dgSpecHash": "suoj3gWmM20ta5MLGntLnUE6fprnIYc9xFPhYDUigjkbehN7+iFyfwJpa2kOkNNqBlI3HCGGlur6BtO46YvhPQ==",
   "success": true,
-  "projectFilePath": "E:\\Zadanie\\BooksAPI\\BooksAPI\\BooksAPI.csproj",
+  "projectFilePath": "E:\\Stronki\\BooksAPI\\BooksAPI\\BooksAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\annak\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\annak\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
