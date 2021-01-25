@@ -29,9 +29,11 @@ namespace BooksAPI
             services.AddAuthorization();
             services.AddControllers();
             services.AddMvc();
-
-            var connectionSection = Configuration.GetSection("ConnectionStrings");
-            services.Configure<ConnectionStrings>(connectionSection);
+            services.AddTransient<BooksContext>()
+            .AddMvc(options =>
+            {
+                options.RespectBrowserAcceptHeader = true;
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

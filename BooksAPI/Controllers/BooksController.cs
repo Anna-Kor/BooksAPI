@@ -23,9 +23,9 @@ namespace BooksAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<Book>> GetBook()
+        public async Task<ActionResult<Book>> GetBooksAsync()
         {
-            var book = await _context.GetBook();
+            var book = await _context.GetBooksAsync();
 
             if (book == null)
             {
@@ -36,9 +36,9 @@ namespace BooksAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Book>> GetBook(int id)
+        public async Task<ActionResult<Book>> GetBooksAsync(int id)
         {
-            var book = await _context.GetBook(id);
+            var book = await _context.GetBooksAsync(id);
 
             if (book == null)
             {

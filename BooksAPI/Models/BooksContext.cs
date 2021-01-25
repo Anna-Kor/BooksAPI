@@ -22,7 +22,7 @@ namespace BooksAPI.Models
             _connectionStrings = connectionStrings.Value;
         }
 
-        public async Task<List<Book>> GetBook()
+        public async Task<List<Book>> GetBooksAsync()
         {
             List<Book> books = new List<Book>();
             var cs = _configuration.GetValue<string>("ConnectionString:BooksDatabase");
@@ -51,11 +51,11 @@ namespace BooksAPI.Models
             return books;
         }
 
-        public async Task<List<Book>> GetBook(int id)
+        public async Task<List<Book>> GetBooksAsync(int id)
         {
             List<Book> books = new List<Book>();
             var cs = _configuration.GetValue<string>("ConnectionString:BooksDatabase");
-            string query = "SELECT * FROM [dbo].[Books] WHERE [ID] = " + id.ToString();
+            string query = "SELECT * FROM [dbo].[Books] WHERE [BookID] = " + id.ToString();
 
             using (var sqlCon = new SqlConnection(cs))
             {
