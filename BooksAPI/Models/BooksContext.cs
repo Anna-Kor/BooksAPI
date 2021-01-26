@@ -20,11 +20,11 @@ namespace BooksAPI.Models
             _configuration = configuration;
         }
 
-        public async Task<List<Book>> GetBooksAsync()
+        public async Task<List<Guid>> GetBooksAsync()
         {
-            List<Book> books = new List<Book>();
-            var cs = _configuration.GetValue<string>("ConnectionString:BooksDatabase");
-            string query = "SELECT [BookID] FROM [dbo].[Books]";
+            List<Guid> IDList = new List<Guid>();
+            var cs = _configuration.GetConnectionString("BooksDatabase");
+            string query = "SELECT [ID] FROM [dbo].[Books]";
 
             using (var sqlCon = new SqlConnection(cs))
             {
@@ -40,20 +40,20 @@ namespace BooksAPI.Models
                     {
                         while (reader.Read())
                         {
-                            books.Add(bookBuilder(reader));
+                            IDList.Add(Guid.Parse(reader["ID"].ToString()));
                         }
                     }
                 }
             }
 
-            return books;
+            return IDList;
         }
 
-        public async Task<List<Book>> GetBooksAsync(int id)
+        public async Task<List<Book>> GetBooksAsync(Guid id)
         {
             List<Book> books = new List<Book>();
-            var cs = _configuration.GetValue<string>("ConnectionString:BooksDatabase");
-            string query = "SELECT * FROM [dbo].[Books] WHERE [BookID] = " + id.ToString();
+            var cs = _configuration.GetConnectionString("BooksDatabase");
+            string query = "SELECT * FROM [dbo].[Books] WHERE [ID] = '" + id + "'";
 
             using (var sqlCon = new SqlConnection(cs))
             {
@@ -82,7 +82,7 @@ namespace BooksAPI.Models
         {
             return new Book
             (
-                Guid.Parse(reader["Id"].ToString()),
+                Guid.Parse(reader["ID"].ToString()),
                 reader["Name"].ToString(),
                 reader["Author"].ToString(),
                 reader["ISBN"].ToString(),

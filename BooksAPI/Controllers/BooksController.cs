@@ -36,7 +36,7 @@ namespace BooksAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Book>> GetBooksAsync(int id)
+        public async Task<ActionResult<Book>> GetBooksAsync(Guid id)
         {
             var book = await _context.GetBooksAsync(id);
 
